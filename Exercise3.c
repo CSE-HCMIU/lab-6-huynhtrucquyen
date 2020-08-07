@@ -4,7 +4,10 @@
 int ex3(char *str)
 {
     char a[100], temp[100];
+    memset(a, 0, sizeof(a));
     char res_max[100] = "", res_min[100] = "12345677777777777";
+    int fee[300];
+    memset(fee, 0, sizeof(fee));
     char words[100][100];
     int l[100];
     memset(l, 0, sizeof(l));
@@ -36,27 +39,32 @@ int ex3(char *str)
             memset(temp, 0, sizeof(temp));
         }
         else
+        {
             temp[strlen(temp)] = a[i];
+            fee[a[i]] = 1;
+        }
     }
     for (int i = 0; i < strlen(res_min); i++)
     {
-        int check = res_min[i];
-        if (check > 60)
+        if (fee[res_min[i]] == 1)
             printf("%c", res_min[i]);
     }
     printf(" ");
     for (int i = 0; i < strlen(res_max); i++)
     {
-        int check = res_max[i];
-        if (check > 60)
+        if (fee[res_max[i]] == 1)
             printf("%c", res_max[i]);
     }
 }
+
  
+
 int main(int argc, char *argv[])
 {
     char *str = "This is a string";
     ex3(str);
+
  
+
     return 0;
 }
