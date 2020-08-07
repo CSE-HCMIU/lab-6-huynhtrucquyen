@@ -9,9 +9,19 @@ Ex:
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 int ex2(int n, char *str[]){
-	//your codes here
+    char *temp;
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < i; j++)
+            if (strcmp(str[i], str[j]) < 0)
+            {
+                temp = str[i];
+                str[i] = str[j];
+                str[j] = temp;
+            }
+    for (int i=0; i<n; i++)
+       printf("%s ",str[i]);
 }
 
 int main(int argc, char *argv[]) {
