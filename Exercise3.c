@@ -13,7 +13,7 @@ int ex3(char *str)
     {
         a[i] = str[i];
     }
-    a[strlen(a)]=' ';
+    a[strlen(a)] = ' ';
     for (int i = 0; i < strlen(a); i++)
     {
         if (a[i] == ' ')
@@ -38,7 +38,19 @@ int ex3(char *str)
         else
             temp[strlen(temp)] = a[i];
     }
-    printf("%s %s", res_min, res_max);
+    for (int i = 0; i < strlen(res_min); i++)
+    {
+        int check = res_min[i];
+        if (check > 60)
+            printf("%c", res_min[i]);
+    }
+    printf(" ");
+    for (int i = 0; i < strlen(res_max); i++)
+    {
+        int check = res_max[i];
+        if (check > 60)
+            printf("%c", res_max[i]);
+    }
 }
  
 int main(int argc, char *argv[])
